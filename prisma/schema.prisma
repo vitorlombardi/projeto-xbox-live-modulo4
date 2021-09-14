@@ -11,12 +11,48 @@ generator client {
   provider = "prisma-client-js"
 }
 
-model usuario {
+model Usuarios {
   id        Int    @id @default(autoincrement())
+  
   nome      String
   sobrenome String
   email     String
   senha     String
   cpf       String
   admin     Boolean
+
+  perfils   Perfils[]
 }
+
+model Perfils{
+  id        Int @id @default(autoincrement())
+  nome      String
+  imagemUrl String
+
+  usuario Usuarios @relation(fields: [usuarioID], references: [id])
+  usuarioID Int
+}
+
+// model jogos{
+//   id        Int    @id @default(autoincrement())
+//   nome      String
+//   imagemUrl String
+//   Descricao String
+//   ano       Int
+//   nota      Int
+//   trailer   String
+//   gameplay  String
+//   genero    Genero[]
+// }
+
+// model Genero{
+//   id     Int    @id @default(autoincrement())
+//   nome   String
+//   jogo   Jogos @relation(fields: [jogoId], references: [id])
+//   jogoId Int
+// }
+
+// Relações
+// Um usuário x muitos perfis
+// Um jogo x muitos gêneros
+// Muitos perfis x muitos jogos (jogos favoritos)
