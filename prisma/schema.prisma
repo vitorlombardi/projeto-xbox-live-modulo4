@@ -1,0 +1,22 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+datasource db {
+  provider          = "postgresql"
+  url               = env("DATABASE_URL")
+  shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model usuario {
+  id        Int    @id @default(autoincrement())
+  nome      String
+  sobrenome String
+  email     String
+  senha     String
+  cpf       String
+  admin     Boolean
+}
