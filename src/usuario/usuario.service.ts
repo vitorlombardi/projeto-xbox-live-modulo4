@@ -7,6 +7,9 @@ import * as bcrypt from 'bcrypt';
 
 @Injectable()
 export class UsuarioService {
+  findOne(id: number) {
+    throw new Error('Method not implemented.');
+  }
   constructor(private readonly prisma: PrismaService) {}
 
   async create(createUsuarioDto: CreateUsuarioDto) {

@@ -7,7 +7,7 @@ import {
   MaxLength,
   MinLength,
 } from 'class-validator';
-import { Cpf } from '../../decorators/isCPF';
+import { Cpf } from 'src/decorators/isCPF';
 
 export class CreateUsuarioDto implements Usuario {
   @IsString()

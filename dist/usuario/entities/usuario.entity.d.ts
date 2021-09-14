@@ -1,4 +1,5 @@
-export declare class Usuario {
+import { Prisma } from '.prisma/client';
+export declare class Usuario implements Prisma.UsuariosUncheckedCreateInput {
     id?: number;
     nome: string;
     sobrenome: string;

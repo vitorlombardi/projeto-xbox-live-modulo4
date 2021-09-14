@@ -33,24 +33,24 @@ model Perfils{
   usuarioID Int
 }
 
-// model jogos{
-//   id        Int    @id @default(autoincrement())
-//   nome      String
-//   imagemUrl String
-//   Descricao String
-//   ano       Int
-//   nota      Int
-//   trailer   String
-//   gameplay  String
-//   genero    Genero[]
-// }
+  model Jogos{
+    id        Int    @id @default(autoincrement())
+    nome      String
+    imagemUrl String
+    Descricao String
+    ano       Int
+    nota      Int
+    trailer   String
+    gameplay  String
+    genero    Genero[]
+ }
 
-// model Genero{
-//   id     Int    @id @default(autoincrement())
-//   nome   String
-//   jogo   Jogos @relation(fields: [jogoId], references: [id])
-//   jogoId Int
-// }
+  model Genero{
+    id     Int    @id @default(autoincrement())
+    nome   String
+    jogo   Jogos @relation(fields: [jogoId], references: [id])
+    jogoId Int
+ }
 
 // Relações
 // Um usuário x muitos perfis

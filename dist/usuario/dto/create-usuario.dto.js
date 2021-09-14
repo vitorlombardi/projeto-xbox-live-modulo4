@@ -28,6 +28,11 @@ __decorate([
 ], CreateUsuarioDto.prototype, "email", void 0);
 __decorate([
     (0, class_validator_1.IsString)(),
+    (0, class_validator_1.MinLength)(4),
+    (0, class_validator_1.MaxLength)(20),
+    (0, class_validator_1.Matches)(/((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/, {
+        message: 'password too weak',
+    }),
     __metadata("design:type", String)
 ], CreateUsuarioDto.prototype, "senha", void 0);
 __decorate([
