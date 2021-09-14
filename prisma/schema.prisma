@@ -42,12 +42,14 @@ model Perfils{
     nota      Int
     trailer   String
     gameplay  String
+    
     genero    Genero[]
  }
 
   model Genero{
     id     Int    @id @default(autoincrement())
     nome   String
+    
     jogo   Jogos @relation(fields: [jogoId], references: [id])
     jogoId Int
  }

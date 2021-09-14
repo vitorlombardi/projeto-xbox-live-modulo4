@@ -8,4 +8,5 @@ export class Usuario implements Prisma.UsuariosUncheckedCreateInput {
   senha: string;
   cpf: string;
   admin: boolean;
+  perfils?: any;
 }
