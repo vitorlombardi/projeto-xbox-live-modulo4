@@ -16,7 +16,7 @@ model Usuarios {
   
   nome      String
   sobrenome String
-  email     String
+  email     String @unique
   senha     String
   cpf       String
   admin     Boolean

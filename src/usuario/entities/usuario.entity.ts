@@ -1,4 +1,6 @@
-export class Usuario {
+import { Prisma } from '.prisma/client';
+
+export class Usuario implements Prisma.UsuariosUncheckedCreateInput {
   id?: number;
   nome: string;
   sobrenome: string;
