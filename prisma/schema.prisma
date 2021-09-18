@@ -19,9 +19,9 @@ model Usuarios {
   email     String @unique
   senha     String
   cpf       String
-  admin     Boolean
+  admin     Boolean @default(false)
 
-  perfils   Perfils[]
+  perfils   Perfils[] 
 }
 
 model Perfils{
@@ -29,8 +29,10 @@ model Perfils{
   nome      String
   imagemUrl String
 
-  usuario Usuarios @relation(fields: [usuarioID], references: [id])
+  usuario   Usuarios @relation(fields: [usuarioID], references: [id])
   usuarioID Int
+
+  jogos     Jogos[]
 }
 
   model Jogos{
@@ -39,9 +41,11 @@ model Perfils{
     imagemUrl String
     Descricao String
     ano       Int
-    nota      Int
+    nota      Float
     trailer   String
     gameplay  String
+
+    perfils   Perfils[]
     
     genero    Genero[]
  }
@@ -50,11 +54,10 @@ model Perfils{
     id     Int    @id @default(autoincrement())
     nome   String
     
-    jogo   Jogos @relation(fields: [jogoId], references: [id])
-    jogoId Int
+    jogos  Jogos[]
  }
 
 // Relações
 // Um usuário x muitos perfis
-// Um jogo x muitos gêneros
+// Muitos jogo x muitos gêneros
 // Muitos perfis x muitos jogos (jogos favoritos)

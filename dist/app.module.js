@@ -13,13 +13,18 @@ const app_service_1 = require("./app.service");
 const usuario_module_1 = require("./usuario/usuario.module");
 const prisma_module_1 = require("./prisma/prisma.module");
 const auth_module_1 = require("./auth/auth.module");
+const perfil_module_1 = require("./perfil/perfil.module");
+const jogos_module_1 = require("./jogos/jogos.module");
+const generos_module_1 = require("./generos/generos.module");
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
     (0, common_1.Module)({
-        imports: [usuario_module_1.UsuarioModule, prisma_module_1.PrismaModule, auth_module_1.AuthModule],
+        imports: [usuario_module_1.UsuarioModule, prisma_module_1.PrismaModule, auth_module_1.AuthModule, perfil_module_1.PerfilModule, jogos_module_1.JogosModule, generos_module_1.GenerosModule],
         controllers: [app_controller_1.AppController],
-        providers: [app_service_1.AppService],
+        providers: [
+            app_service_1.AppService,
+        ],
     })
 ], AppModule);
 exports.AppModule = AppModule;

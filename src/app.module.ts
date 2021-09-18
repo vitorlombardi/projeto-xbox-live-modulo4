@@ -4,10 +4,19 @@ import { AppService } from './app.service';
 import { UsuarioModule } from './usuario/usuario.module';
 import { PrismaModule } from './prisma/prisma.module';
 import { AuthModule } from './auth/auth.module';
+import { PerfilModule } from './perfil/perfil.module';
+import { JogosModule } from './jogos/jogos.module';
+import { GenerosModule } from './generos/generos.module';
 
 @Module({
-  imports: [UsuarioModule, PrismaModule, AuthModule],
+  imports: [UsuarioModule, PrismaModule, AuthModule, PerfilModule, JogosModule, GenerosModule],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [
+    AppService,
+    // {
+    //   provide: APP_GUARD,
+    //   useClass: JwtAuthGuard,
+    // },
+  ],
 })
 export class AppModule {}
