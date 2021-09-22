@@ -31,5 +31,5 @@ export class CreateUsuarioDto implements Usuario {
   cpf: string;
 
   @IsBoolean()
-  admin: boolean;
+  admin = false;
 }

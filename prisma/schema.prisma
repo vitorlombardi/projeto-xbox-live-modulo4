@@ -18,7 +18,7 @@ model Usuarios {
   sobrenome String
   email     String @unique
   senha     String
-  cpf       String
+  cpf       String @unique
   admin     Boolean @default(false)
 
   perfils   Perfils[] 
@@ -52,7 +52,7 @@ model Perfils{
 
   model Genero{
     id     Int    @id @default(autoincrement())
-    nome   String
+    nome   String @unique
     
     jogos  Jogos[]
  }

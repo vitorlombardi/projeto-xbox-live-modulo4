@@ -17,9 +17,6 @@ let UsuarioService = class UsuarioService {
     constructor(prisma) {
         this.prisma = prisma;
     }
-    findOne(id) {
-        throw new Error('Method not implemented.');
-    }
     async create(createUsuarioDto) {
         const data = Object.assign(Object.assign({}, createUsuarioDto), { senha: await bcrypt.hash(createUsuarioDto.senha, 10) });
         const createdUsuario = await this.prisma.usuarios.create({ data });

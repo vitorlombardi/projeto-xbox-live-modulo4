@@ -1,4 +1,5 @@
 import { Injectable } from '@nestjs/common';
+import { Prisma } from '@prisma/client';
 import { PrismaService } from 'src/prisma/prisma.service';
 import { CreatePerfilDto } from './dto/create-perfil.dto';
 import { UpdatePerfilDto } from './dto/update-perfil.dto';
@@ -29,27 +30,33 @@ export class PerfilService {
   }
 
   update(id: number, updatePerfilDto: UpdatePerfilDto) {
-    // const jogosIds = updatePerfilDto.jogosIds;
+    const jogosIds = updatePerfilDto.jogosIds;
 
-    // delete updatePerfilDto.jogosIds;
+    delete updatePerfilDto.jogosIds;
 
-    // const jogosDisconnectIds = updatePerfilDto.jogosDisconnectIds;
+    const jogosDisconnectIds = updatePerfilDto.jogosDisconnectIds;
 
-    // delete updatePerfilDto.jogosDisconnectIds;
+    delete updatePerfilDto.jogosDisconnectIds;
 
-    // const data = {
-    //   ...updatePerfilDto,
-    //   jogos: {
-    //     connect: jogosIds?.map((id) => ({ id })),
-    //     disconnect: jogosDisconnectIds?.map((id) => ({ id })),
-    //   },
-    // };
+    const data: Prisma.PerfilsUpdateInput = {
+      ...updatePerfilDto,
+      jogos: {
+        connect: jogosIds?.map((id) => ({ id })),
+        disconnect: jogosDisconnectIds?.map((id) => ({ id })),
+      },
+    };
 
-    // return this.prisma.perfils.update({
-    //   where: { id },
-    //   data,
-    // });
-    return "aaaa"
+    return this.prisma.perfils.update({
+      where: { id },
+      data,
+      include: {
+        jogos: {
+          select: {
+            nome: true,
+          },
+        },
+      },
+    });
   }
 
   remove(id: number) {

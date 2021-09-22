@@ -13,6 +13,9 @@ exports.CreateUsuarioDto = void 0;
 const class_validator_1 = require("class-validator");
 const isCPF_1 = require("../../decorators/isCPF");
 class CreateUsuarioDto {
+    constructor() {
+        this.admin = false;
+    }
 }
 __decorate([
     (0, class_validator_1.IsString)(),
@@ -41,7 +44,7 @@ __decorate([
 ], CreateUsuarioDto.prototype, "cpf", void 0);
 __decorate([
     (0, class_validator_1.IsBoolean)(),
-    __metadata("design:type", Boolean)
+    __metadata("design:type", Object)
 ], CreateUsuarioDto.prototype, "admin", void 0);
 exports.CreateUsuarioDto = CreateUsuarioDto;
 //# sourceMappingURL=create-usuario.dto.js.map

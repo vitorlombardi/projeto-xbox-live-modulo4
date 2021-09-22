@@ -2,7 +2,6 @@ import { Type } from 'class-transformer';
 import { IsInt, IsNumber, IsString, ValidateNested } from 'class-validator';
 import { CreateGeneroDto } from 'src/generos/dto/create-genero.dto';
 
-
 export class CreateJogoDto {
   @IsString()
   nome: string;
@@ -13,10 +12,10 @@ export class CreateJogoDto {
   @IsString()
   Descricao: string;
 
-  @IsInt()
+  @IsNumber()
   ano: number;
 
-  @IsInt()
+  @IsNumber()
   nota: number;
 
   @IsString()

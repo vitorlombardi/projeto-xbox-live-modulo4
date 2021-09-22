@@ -28,7 +28,7 @@ let UsuarioController = class UsuarioController {
         return this.usuarioService.findAll();
     }
     findOne(id) {
-        return this.usuarioService.findOne(id);
+        return this.usuarioService.findById(id);
     }
     update(id, updateUsuarioDto) {
         return this.usuarioService.update(id, updateUsuarioDto);

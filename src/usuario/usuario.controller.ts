@@ -29,7 +29,7 @@ export class UsuarioController {
 
   @Get(':id')
   findOne(@Param('id') id: number) {
-    return this.usuarioService.findOne(id);
+    return this.usuarioService.findById(id);
   }
 
   @Patch(':id')

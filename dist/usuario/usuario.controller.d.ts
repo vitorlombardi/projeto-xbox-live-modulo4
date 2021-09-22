@@ -14,7 +14,7 @@ export declare class UsuarioController {
         admin: boolean;
     }>;
     findAll(): import(".prisma/client").PrismaPromise<import(".prisma/client").Usuarios[]>;
-    findOne(id: number): void;
+    findOne(id: number): import(".prisma/client").Prisma.Prisma__UsuariosClient<import(".prisma/client").Usuarios>;
     update(id: number, updateUsuarioDto: UpdateUsuarioDto): import(".prisma/client").Prisma.Prisma__UsuariosClient<import(".prisma/client").Usuarios>;
     remove(id: number): import(".prisma/client").Prisma.Prisma__UsuariosClient<import(".prisma/client").Usuarios>;
 }

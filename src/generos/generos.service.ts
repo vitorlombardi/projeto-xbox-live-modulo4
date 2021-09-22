@@ -14,7 +14,11 @@ export class GenerosService {
   }
 
   findAll() {
-    return this.prisma.genero.findMany();
+    return this.prisma.genero.findMany({
+      include: {
+        jogos: true,
+      },
+    });
   }
 
   findOne(id: number) {

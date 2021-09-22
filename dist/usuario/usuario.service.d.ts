@@ -3,7 +3,6 @@ import { CreateUsuarioDto } from './dto/create-usuario.dto';
 import { UpdateUsuarioDto } from './dto/update-usuario.dto';
 export declare class UsuarioService {
     private readonly prisma;
-    findOne(id: number): void;
     constructor(prisma: PrismaService);
     create(createUsuarioDto: CreateUsuarioDto): Promise<{
         senha: any;

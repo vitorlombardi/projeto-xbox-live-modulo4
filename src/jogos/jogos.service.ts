@@ -27,11 +27,28 @@ export class JogosService {
   }
 
   findAll() {
-    return this.prisma.jogos.findMany({ include: { genero: true } });
+    return this.prisma.jogos.findMany({
+      include: {
+        genero: {
+          select: {
+            nome: true,
+          },
+        },
+      },
+    });
   }
 
   findOne(id: number) {
-    return this.prisma.jogos.findUnique({ where: { id } });
+    return this.prisma.jogos.findUnique({
+      where: { id },
+      include: {
+        genero: {
+          select: {
+            nome: true,
+          },
+        },
+      },
+    });
   }
 
   update(id: number, updateJogoDto: UpdateJogoDto) {
